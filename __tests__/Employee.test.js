@@ -13,8 +13,8 @@ test("instantiation of employee instance", () => {
 // test constructor initialized with a name
 test("Can set name using constructor", () => {
   const name = "Ben";
-  const emp = new Employee(Name);
-  expect(emp.name).toBe(Name);
+  const emp = new Employee(name);
+  expect(emp.name).toBe(name);
 });
 
 // test constructor initialized wtih an id
@@ -56,5 +56,5 @@ test("Test get email method", () => {
 test("Test get role method", () => {
   const value = "Employee";
   const emp = new Employee("Ben", 123, "test@email.com");
-  expect(emp.getRoll()).toBe(value);
+  expect(emp.getRole()).toBe(value);
 });
