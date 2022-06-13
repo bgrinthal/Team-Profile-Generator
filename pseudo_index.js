@@ -9,9 +9,10 @@ const intern = require("./lib/Intern");
 
 // Imports external package inquirer
 const inquirer = require('inquirer');
-// Imports path
+// Imports 'path' from library to be used to create output folder and file name
+  // Hint: _dirname, process.cwd() or you can use relative path without using 'path' library function
 const path = require('path');
-// Imports fs
+// Imports fs from node library
 const fs = require('fs');
 
 // Imports page template source file
@@ -193,9 +194,13 @@ function addEngineer() {
 //  5. function build team
 function buildTeam() {
 //      - check if the output folder path already exists.
-//      -   if not, create it
+//        - the 'dist' folder
+//        -   if not, create it
 //      - call page template function passing the team member object array as input argument
-//      - write the returned template function to the output
+//           -src/page_template
+//           -returns html file
+//      - write the returned template from the function to the output
 //
 //      - Hint: fs.existsSync, fs.mkdirSync, and fs.writeFileSync
+//        -use this to check if file exists, then make dir, then write file
 }
