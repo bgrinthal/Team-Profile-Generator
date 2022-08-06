@@ -168,9 +168,9 @@ Project Link: [https://github.com/bgrinthal/Team-Profile-Generator](https://gith
 [JQuery-url]: https://jquery.com 
 [Express.com]: https://img.shields.io/badge/Express-0769AD?style=for-the-badge&logo=express&logoColor=white
 [Express-url]: https://expressjs.com/
-[Inquirer.com]: https://img.shields.io/badge/Express-0769AD?style=for-the-badge&logo=inquirer&logoColor=white
+[Inquirer.com]: https://img.shields.io/badge/Inquirer-0769AD?style=for-the-badge&logo=inquirer&logoColor=white
 [Inquirer-url]: https://www.npmjs.com/package/inquirer#documentation
-[Node.com]: https://img.shields.io/badge/Express-0769AD?style=for-the-badge&logo=node&logoColor=white
+[Node.com]: https://img.shields.io/badge/Node-0769AD?style=for-the-badge&logo=node&logoColor=white
 [Node-url]: https://nodejs.org/en/
 
 
