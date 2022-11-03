@@ -47,21 +47,11 @@ function createManager() {
         name: 'mngrNumber',
       },
     ])
-    .then((answer) => {
-      // log and push answers and ID's to respective emptey arrays
-      console.log(answer);
-      const mngr = (({ mngrName, mngrID, mngrEmail, mngrNumber }) => ({ mngrName, mngrID, mngrEmail, mngrNumber }))(answer);
-
-      teamAr.push(mngr);
-      employeeIDAr.push(mngr.mngrID);
-
-      console.log(teamAr);
-      console.log(employeeIDAr);
-
+    .then(answers => {
+      const manager = new Manager(answers.mngrName, answers.mngrID, answers.mngrEmail, answers.mngrNumber);
+      teamAr.push(manager);
       buildTeam();
-
-    }
-    );
+    });
 }
 
 //  Function to build team called from manager, intern, and engineer function
@@ -120,13 +110,11 @@ function addEngineer() {
       },
     ])
 
-    .then((answer) => {
-      // log and push answers and ID's to respective emptey arrays
-      const eng = (({ engName, engID, engEmail, engGitHub }) => ({ engName, engID, engEmail, engGitHub }))(answer);
-      teamAr.push(eng);
-      employeeIDAr.push(eng.engID);
-      buildTeam()
-    })
+    .then(answers => {
+      const engineer = new Engineer(answers.engName, answers.engID, answers.engEmail, answers.engGithub);
+      teamAr.push(engineer);
+      buildTeam();
+    });
 }
 
 
@@ -157,12 +145,11 @@ function addIntern() {
       },
     ])
 
-    .then((answer) => {
-      const intern = (({ internName, internID, internEmail, internSchool }) => ({ internName, internID, internEmail, internSchool }))(answer);
-            // log and push answers and ID's to respective emptey arrays
+    .then(answers => {
+      const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
       teamAr.push(intern);
-      buildTeam()
-    })
+      buildTeam();
+    });
 }
 
 //

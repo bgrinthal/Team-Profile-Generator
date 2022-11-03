@@ -13,14 +13,14 @@ const generateManager = (mngr) => {
   return `
 <div class="card border border-primary m-3" style="width: 18rem;">
   <div class="card-header bg-info">
-  <h2 class="card-title">${mngr[0].mngrName}</h2>
+  <h2 class="card-title">${mngr.getName()}</h2>
   <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Manager</h3>
   </div>
   <div class="card-body">
     <ul class="list-group">
-      <li class="list-group-item">ID: ${mngr[0].mngrID}</li>
-      <li class="list-group-item">Email: <a href="mailto:${mngr[0].mngrEmail}">${mngr[0].mngrEmail}</a></li>
-      <li class="list-group-item">Office number: ${mngr[0].mngrNumber}</li>
+      <li class="list-group-item">ID: ${mngr.getId()}</li>
+      <li class="list-group-item">Email: <a href="mailto:${mngr.getEmail()}">${mngr[0].getEmail()}</a></li>
+      <li class="list-group-item">Office number: ${mngr.getNumber()}</li>
     </ul>
   </div>
 </div>
@@ -31,49 +31,49 @@ const generateManager = (mngr) => {
 const generateEngineer = (eng) => {
   console.log(eng);
   console.log(eng[0].engName);
-  for (i = 0; i < eng.length; i++) {
-    if (((Object.keys(eng[i]))[0]) === "engName") {
-      return `
+  // for (i = 0; i < eng.length; i++) {
+  //   if (((Object.keys(eng[i]))[0]) === "engName") {
+  return `
       <div class="card border border-primary m-3" style="width: 18rem;">
         <div class="card-header bg-info">
-        <h2 class="card-title">${eng[i].engName}</h2>
+        <h2 class="card-title">${eng.getName()}</h2>
         <h3 class="card-title"><i class="fa fa-solid fa-brain"></i>Engineer</h3>
         </div>
         <div class="card-body">
           <ul class="list-group">
-            <li class="list-group-item">ID: ${eng[i].engID}</li>
-            <li class="list-group-item">Email: <a href="mailto:${eng[i].engName}">${eng[i].engName}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/${eng[i].engGithub}" target="_blank">${eng[i].engGitHub}</a></li>
+            <li class="list-group-item">ID: ${eng.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${eng.getEmail()}">${eng.getEmail()}</a></li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/${eng.getGithub()}" target="_blank">${eng.getGithub()}</a></li>
           </ul>
         </div>
       </div>
         `
-    }
-  }
+  // }
+  // }
 };
 
 
 // crates engineer html code using inpute.  Loops over input to pull out just "intern" related answers
 const generateIntern = (intern) => {
-  for (i = 0; i < intern.length; i++) {
-    if (((Object.keys(intern[i]))[0]) === "internName") {
-      return `
+  // for (i = 0; i < intern.length; i++) {
+  //   if (((Object.keys(intern[i]))[0]) === "internName") {
+  return `
 <div class="card border border-primary m-3" style="width: 18rem;">
   <div class="card-header bg-info">
-  <h2 class="card-title">${intern[i].internName}</h2>
+  <h2 class="card-title">${intern.getName()}</h2>
   <h3 class="card-title"><i class="fa fa-solid fa-graduation-cap"></i>Intern</h3>
   </div>
   <div class="card-body">
     <ul class="list-group">
-      <li class="list-group-item">ID: ${intern[i].internID}</li>
-      <li class="list-group-item">Email: <a href="mailto:${intern[i].internEmail}">${intern[i].internEmail}</a></li>
-      <li class="list-group-item">School: ${intern[i].internSchool}</li>
+      <li class="list-group-item">ID: ${intern.getId()}</li>
+      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+      <li class="list-group-item">School: ${intern.getSchool()}</li>
     </ul>
   </div>
 </div>
   `
-    }
-  }
+  //   }
+  // }
 }
 
 // creating team templates.  Loops through input and pushes above html code into a single array
