@@ -56,6 +56,7 @@ const generateTeam = (team) => {
 
   // crates engineer html code using inpute.  Loops over input to pull out just "intern" related answers
   const generateIntern = (intern) => {
+    console.log(intern);
     // for (i = 0; i < intern.length; i++) {
     //   if (((Object.keys(intern[i]))[0]) === "internName") {
     return `

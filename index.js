@@ -111,7 +111,7 @@ function addEngineer() {
     ])
 
     .then(answers => {
-      const engineer = new Engineer(answers.engName, answers.engID, answers.engEmail, answers.engGithub);
+      const engineer = new Engineer(answers.engName, answers.engID, answers.engEmail, answers.engGitHub);
       teamAr.push(engineer);
       buildTeam();
     });
