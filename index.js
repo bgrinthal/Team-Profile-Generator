@@ -66,7 +66,7 @@ function buildTeam() {
         choices: [
           "Engineer",
           "Intern",
-          "Exit",
+          "Done",
         ]
       },
     ])

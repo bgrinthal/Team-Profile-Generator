@@ -5,12 +5,14 @@ const Intern = require("../lib/Intern")
 
 const path = require("path");
 const fs = require("fs");
+const Employee = require("../lib/Employee");
 
-// creates manager html code using input
-const generateManager = (mngr) => {
-  console.log(mngr);
-  console.log(mngr[0].mngrName);
-  return `
+const generateTeam = (team) => {
+
+  // creates manager html code using input
+  const generateManager = (mngr) => {
+    console.log(mngr);
+    return `
 <div class="card border border-primary m-3" style="width: 18rem;">
   <div class="card-header bg-info">
   <h2 class="card-title">${mngr.getName()}</h2>
@@ -19,21 +21,20 @@ const generateManager = (mngr) => {
   <div class="card-body">
     <ul class="list-group">
       <li class="list-group-item">ID: ${mngr.getId()}</li>
-      <li class="list-group-item">Email: <a href="mailto:${mngr.getEmail()}">${mngr[0].getEmail()}</a></li>
+      <li class="list-group-item">Email: <a href="mailto:${mngr.getEmail()}">${mngr.getEmail()}</a></li>
       <li class="list-group-item">Office number: ${mngr.getNumber()}</li>
     </ul>
   </div>
 </div>
   `
-}
+  }
 
-// crates engineer html code using inpute.  Loops over input to pull out just "engineer" related answers
-const generateEngineer = (eng) => {
-  console.log(eng);
-  console.log(eng[0].engName);
-  // for (i = 0; i < eng.length; i++) {
-  //   if (((Object.keys(eng[i]))[0]) === "engName") {
-  return `
+  // crates engineer html code using inpute.  Loops over input to pull out just "engineer" related answers
+  const generateEngineer = (eng) => {
+    console.log(eng);
+    // for (i = 0; i < eng.length; i++) {
+    //   if (((Object.keys(eng[i]))[0]) === "engName") {
+    return `
       <div class="card border border-primary m-3" style="width: 18rem;">
         <div class="card-header bg-info">
         <h2 class="card-title">${eng.getName()}</h2>
@@ -48,16 +49,16 @@ const generateEngineer = (eng) => {
         </div>
       </div>
         `
-  // }
-  // }
-};
+    // }
+    // }
+  };
 
 
-// crates engineer html code using inpute.  Loops over input to pull out just "intern" related answers
-const generateIntern = (intern) => {
-  // for (i = 0; i < intern.length; i++) {
-  //   if (((Object.keys(intern[i]))[0]) === "internName") {
-  return `
+  // crates engineer html code using inpute.  Loops over input to pull out just "intern" related answers
+  const generateIntern = (intern) => {
+    // for (i = 0; i < intern.length; i++) {
+    //   if (((Object.keys(intern[i]))[0]) === "internName") {
+    return `
 <div class="card border border-primary m-3" style="width: 18rem;">
   <div class="card-header bg-info">
   <h2 class="card-title">${intern.getName()}</h2>
@@ -72,29 +73,45 @@ const generateIntern = (intern) => {
   </div>
 </div>
   `
-  //   }
-  // }
-}
+    //   }
+    // }
+  }
 
-// creating team templates.  Loops through input and pushes above html code into a single array
-const teamTemplate = (team) => {
-
+  // filters input and pushings into team member 
   teamMember = [];
 
-  for (let i = 0; i < team.length; i++) {
-    console.log(team);
-    console.log((Object.keys(team[i]))[0])
-    if ((Object.keys(team[i]))[0] === "mngrName") {
-      teamMember.push(generateManager(team));
-    } else if (((Object.keys(team[i]))[0]) === "engName") {
-      teamMember.push(generateEngineer(team));
-    } else {
-      teamMember.push(generateIntern(team));
-    }
-  }
-  return teamMember.join("");
-};
+  teamMember.push(team
+    .filter(employee => employee.getRole() === "Manager")
+    .map(manager => generateManager(manager))
+  );
 
+  teamMember.push(team
+    .filter(employee => employee.getRole() === "Engineer")
+    .map(engineer => generateEngineer(engineer))
+    .join("")
+  );
+
+  teamMember.push(team
+    .filter(employee => employee.getRole() === "Intern")
+    .map(intern => generateIntern(intern))
+    .join("")
+  );
+
+  // for (let i = 0; i < team.length; i++) {
+  //   console.log(team);
+  //   console.log((Object.keys(team[i]))[0])
+  //   if ((Object.keys(team[i]))[0] === "mngrName") {
+  //     teamMember.push(generateManager(team));
+  //   } else if (((Object.keys(team[i]))[0]) === "engName") {
+  //     teamMember.push(generateEngineer(team));
+  //   } else {
+  //     teamMember.push(generateIntern(team));
+  //   }
+  // }
+  return teamMember.join("");
+
+
+};
 
 // inital "set up" html with above function combining remaining dynamically generated HTML code
 module.exports = (team) => {
@@ -122,7 +139,7 @@ module.exports = (team) => {
     <div class="container">
         <div class="row">
             <div class="team-area col-12 d-flex justify-content-center">
-                ${teamTemplate(team)}
+                ${generateTeam(team)}
             </div>
         </div>
     </div>
