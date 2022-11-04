@@ -9,33 +9,31 @@ const fs = require("fs");
 
 
 const generateTeam = (team) => {
-  console.log(team)
+  console.log('team', team)
 
   // creates manager html code using input
   const generateManager = (mngr) => {
-    console.log(mngr);
+    console.log('mngr', mngr);
     return `
-<div class="card border border-primary m-3" style="width: 18rem;">
-  <div class="card-header bg-info">
-  <h2 class="card-title">${mngr.getName()}</h2>
-  <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Manager</h3>
-  </div>
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item">ID: ${mngr.getId()}</li>
-      <li class="list-group-item">Email: <a href="mailto:${mngr.getEmail()}">${mngr.getEmail()}</a></li>
-      <li class="list-group-item">Office number: ${mngr.getNumber()}</li>
-    </ul>
-  </div>
-</div>
-  `
+      <div class="card border border-primary m-3" style="width: 18rem;">
+        <div class="card-header bg-info">
+       <h2 class="card-title">${mngr.getName()}</h2>
+       <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Manager</h3>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">ID: ${mngr.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto:${mngr.getEmail()}">${mngr.getEmail()}</a></li>
+            <li class="list-group-item">Office number: ${mngr.getNumber()}</li>
+          </ul>
+        </div>
+      </div>
+        `
   }
 
   // crates engineer html code using inpute.  Loops over input to pull out just "engineer" related answers
   const generateEngineer = (eng) => {
-    console.log(eng);
-    // for (i = 0; i < eng.length; i++) {
-    //   if (((Object.keys(eng[i]))[0]) === "engName") {
+    console.log('eng', eng);
     return `
       <div class="card border border-primary m-3" style="width: 18rem;">
         <div class="card-header bg-info">
@@ -51,16 +49,13 @@ const generateTeam = (team) => {
         </div>
       </div>
         `
-    // }
-    // }
   };
 
 
   // crates engineer html code using inpute.  Loops over input to pull out just "intern" related answers
   const generateIntern = (intern) => {
-    console.log(intern);
-    // for (i = 0; i < intern.length; i++) {
-    //   if (((Object.keys(intern[i]))[0]) === "internName") {
+    console.log('intern', intern);
+
     return `
 <div class="card border border-primary m-3" style="width: 18rem;">
   <div class="card-header bg-info">
@@ -76,11 +71,9 @@ const generateTeam = (team) => {
   </div>
 </div>
   `
-    //   }
-    // }
   }
 
-  // filters input and pushings into team member 
+  // filters input seperating and mapping through each role
   teamMember = [];
 
   teamMember.push(team
@@ -100,17 +93,6 @@ const generateTeam = (team) => {
     .join("")
   );
 
-  // for (let i = 0; i < team.length; i++) {
-  //   console.log(team);
-  //   console.log((Object.keys(team[i]))[0])
-  //   if ((Object.keys(team[i]))[0] === "mngrName") {
-  //     teamMember.push(generateManager(team));
-  //   } else if (((Object.keys(team[i]))[0]) === "engName") {
-  //     teamMember.push(generateEngineer(team));
-  //   } else {
-  //     teamMember.push(generateIntern(team));
-  //   }
-  // }
   return teamMember.join("");
 
 
