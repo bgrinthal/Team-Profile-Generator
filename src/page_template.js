@@ -1,13 +1,15 @@
 // import classes
+const Employee = require("../lib/Employee");
 const Manager = require("../lib/Manager")
 const Engineer = require("../lib/Engineer")
 const Intern = require("../lib/Intern")
 
 const path = require("path");
 const fs = require("fs");
-const Employee = require("../lib/Employee");
+
 
 const generateTeam = (team) => {
+  console.log(team)
 
   // creates manager html code using input
   const generateManager = (mngr) => {

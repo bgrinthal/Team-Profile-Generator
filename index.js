@@ -15,9 +15,6 @@ const profileFolder = "profile_repo"
 const profileHTML = "profile_html"
 // Empty array to store the team member objects
 const teamAr = [];
-// Empty array to store employee IDs to be used to check for the dupliates
-const employeeIDAr = [];
-
 
 // Call the starter function
 createManager();
@@ -160,7 +157,7 @@ function createTeam() {
     return prompt("Team already created.  Remove to create another one.")
   } else {
     fs.writeFile('./dist/my_team.html', pageTemplate(teamAr), (err) =>
-    err ? console.log(err) : console.log('Successfully created README.md!'))
+    err ? console.log(err) : console.log('Successfully created README.md!', teamAr))
   }
 }
 
